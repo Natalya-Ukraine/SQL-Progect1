@@ -4,7 +4,7 @@ USE mydb;
 /* SECTION 1: SELECT statements                                                 */
 /* ============================================================================ */
 
-
+SELECT * FROM us_state WHERE name = "California"
 
 
 
@@ -15,7 +15,7 @@ USE mydb;
 /* ---------------------------------------------------------------------------- */
 
 
-
+SELECT name, capital FROM us_state WHERE name = "Oregon"
 
 
 
@@ -25,7 +25,8 @@ USE mydb;
 /* ============================================================================ */
 
 
-
+SELECT * FROM us_state ORDER BY area_size DESC;
+SELECT * FROM us_state WHERE name LIKE "M%" ORDER BY name;
 
 
 
@@ -34,7 +35,7 @@ USE mydb;
 /* start with the letter "N", sort your results by state capital                */
 /* ---------------------------------------------------------------------------- */
 
-
+SELECT * FROM us_state WHERE abbreviation LIKE "N%" ORDER BY name;
 
 
 
@@ -44,7 +45,10 @@ USE mydb;
 /* ============================================================================ */
 
 
-
+INSERT INTO club_member 
+SET first_name = "Harrison"
+last_name = "Kong"
+phone_number = "12345678";
 
 
 
@@ -57,7 +61,10 @@ USE mydb;
 /* ---------------------------------------------------------------------------- */
 
 
-
+INSERT INTO club_member 
+SET first_name = "John"
+last_name = "Doe"
+phone_number = "9998887777";
 
 
 
@@ -68,7 +75,8 @@ USE mydb;
 /* ============================================================================ */
 
 
-
+DELETE FROM club_member
+WHERE first_name = "Harrison" AND last_name = "Kong";
 
 
 
@@ -78,7 +86,8 @@ USE mydb;
 /* if the phone_number is "9998887777"                                          */  
 /* ---------------------------------------------------------------------------- */
 
-
+DELETE FROM club_member
+WHERE phone_nuber = "9998887777";
 
 
 
@@ -91,7 +100,9 @@ USE mydb;
 /* SECTION 5: Joining tables                                                    */
 /* ============================================================================ */
 
-
+SELECT club_member.member_id, first_name, last_name, description, amount, due_date
+FROM club_member, invoice
+WHERE club_member.member_id = invoce.member_id;
 
 
 
@@ -116,7 +127,10 @@ USE mydb;
 
 
 
-
+SELECT first_name, middle_name, last_name, professional_title, tier.description
+FROM tables club_member, tier 
+WHERE club_member.tier_code = tier.code
+ORDER BY last_name;
 
 
 
