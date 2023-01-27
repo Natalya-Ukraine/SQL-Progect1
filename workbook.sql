@@ -132,14 +132,3 @@ FROM tables club_member, tier
 WHERE club_member.tier_code = tier.code
 ORDER BY last_name;
 
-
-
-
-
-
-/* ============================================================================ */
-/*                                                                              */
-/* Congratulations, you have reached the end of the course!!                    */
-/*                                                                              */
-/* ============================================================================ */
-
